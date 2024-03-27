@@ -80,6 +80,13 @@ public class DBHandler extends SQLiteOpenHelper {
                 COL_FACILITIES_OPENING_HOUR + ", " +
                 COL_FACILITIES_CLOSING_HOUR + ", " +
                 COL_FACILITIES_PRICE + ") VALUES ('F01', 'Footbal Field A', 'Inside', '08:00', '21:00', '50000')";
+        String insertFacility1 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F01', 'Footbal Field A', 'Inside', '08:00', '21:00', '50000')";
         db.execSQL(createFacilitiesTabel);
         db.execSQL(insertFacility1);
     }
