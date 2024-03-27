@@ -87,9 +87,83 @@ public class DBHandler extends SQLiteOpenHelper {
                 COL_FACILITIES_OPENING_HOUR + ", " +
                 COL_FACILITIES_CLOSING_HOUR + ", " +
                 COL_FACILITIES_PRICE + ") VALUES ('F02', 'Footbal Field B', 'Outside', '08:00', '21:00', '75000')";
+        String insertFacility3 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F03', 'Basketball Field A', 'Inside', '08:00', '21:00', '150000')";
+        String insertFacility4 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F04', 'Basketball Field B', 'Inside', '08:00', '21:00', '175000')";
+        String insertFacility5 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F05', 'Badminton Field A', 'Inside', '08:00', '21:00', '25000')";
+        String insertFacility6 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F06', 'Badminton Field B', 'Inside', '08:00', '21:00', '50000')";
+        String insertFacility7 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F07', 'Badminton Field C', 'Inside', '08:00', '21:00', '75000')";
+        String insertFacility8 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F08', 'Futsal Field A', 'Inside', '08:00', '21:00', '100000')";
+        String insertFacility9 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F09', 'Futsal Field B', 'Inside', '08:00', '21:00', '150000')";
+        String insertFacility10 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F10', 'Volleyball Field A', 'Outside', '08:00', '21:00', '100000')";
+        String insertFacility11 = "INSERT INTO " + FACILITIES_TABLE + " (" +
+                COL_FACILITIES_ID + ", " +
+                COL_FACILITIES_NAME + ", " +
+                COL_FACILITIES_TYPE + ", " +
+                COL_FACILITIES_OPENING_HOUR + ", " +
+                COL_FACILITIES_CLOSING_HOUR + ", " +
+                COL_FACILITIES_PRICE + ") VALUES ('F11', 'Volleyball Field B', 'Inside', '08:00', '21:00', '175000')";
         db.execSQL(createFacilitiesTabel);
         db.execSQL(insertFacility1);
         db.execSQL(insertFacility2);
+        db.execSQL(insertFacility3);
+        db.execSQL(insertFacility4);
+        db.execSQL(insertFacility5);
+        db.execSQL(insertFacility6);
+        db.execSQL(insertFacility7);
+        db.execSQL(insertFacility8);
+        db.execSQL(insertFacility9);
+        db.execSQL(insertFacility10);
+        db.execSQL(insertFacility11);
+
+
     }
 
     @Override
