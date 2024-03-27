@@ -29,6 +29,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // bookings table
     private static final String BOOKINGS_TABLE = "bookings";
+    private static final String COL_BOOKINGS_ID = "booking_id";
     private static final String COL_BOOKINGS_ORDER_DATE = "order_date";
     private static final String COL_BOOKINGS_USE_DATE = "use_date";
     private static final String COL_BOOKINGS_START_TIME = "start_time";
@@ -58,6 +59,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // users table
         String createUsersTable = "CREATE TABLE " + USERS_TABLE + " (" +
                 COL_USERS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_USERS_NAME + " TEXT, " +
@@ -66,7 +68,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 COL_USERS_PASSWORD + " TEXT)";
         db.execSQL(createUsersTable);
 
-        String createFacilitiesTabel = "CREATE TABLE " + FACILITIES_TABLE + " (" +
+        // facilities table
+        String createFacilitiesTable = "CREATE TABLE " + FACILITIES_TABLE + " (" +
                 COL_FACILITIES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_FACILITIES_NAME + " TEXT, " +
                 COL_FACILITIES_TYPE + " TEXT, " +
@@ -150,7 +153,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 COL_FACILITIES_OPENING_HOUR + ", " +
                 COL_FACILITIES_CLOSING_HOUR + ", " +
                 COL_FACILITIES_PRICE + ") VALUES ('F11', 'Volleyball Field B', 'Inside', '08:00', '21:00', '175000')";
-        db.execSQL(createFacilitiesTabel);
+        db.execSQL(createFacilitiesTable);
         db.execSQL(insertFacility1);
         db.execSQL(insertFacility2);
         db.execSQL(insertFacility3);
@@ -163,7 +166,16 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(insertFacility10);
         db.execSQL(insertFacility11);
 
-
+        // bookings table
+        String createBookingsTable = "CREATE TABLE " + BOOKINGS_TABLE + " (" +
+                COL_BOOKINGS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_BOOKINGS_ORDER_DATE + " TEXT, " +
+                COL_BOOKINGS_USE_DATE + " TEXT, " +
+                COL_BOOKINGS_START_TIME + " TEXT, " +
+                COL_BOOKINGS_FINISH_TIME + " TEXT, " +
+                COL_BOOKINGS_PRICE + " TEXT, " +
+                COL_BOOKINGS_STATUS + " TEXT)";
+        db.execSQL(createBookingsTable);
     }
 
     @Override
