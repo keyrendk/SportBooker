@@ -89,6 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 COL_FACILITIES_PRICE + ") VALUES ('F01', 'Footbal Field A', 'Inside', '08:00', '21:00', '50000')";
         db.execSQL(createFacilitiesTabel);
         db.execSQL(insertFacility1);
+        db.execSQL(insertFacility2);
     }
 
     @Override
