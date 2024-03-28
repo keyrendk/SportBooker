@@ -7,10 +7,14 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="SportBooker"
+        android:textColor="#F84995"
+        android:textSize="130px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
