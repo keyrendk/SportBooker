@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+<<<<<<< HEAD
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,6 +16,19 @@
         android:textSize="25sp"
         tools:layout_editor_absoluteX="47dp"
         tools:layout_editor_absoluteY="160dp" />
+=======
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="SportBooker"
+        android:textColor="#F84995"
+        android:textSize="130px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+>>>>>>> 0e806f27b7670727fed659b2051a0105b0bfd939
 
     <TextView
         android:id="@+id/textView25"
