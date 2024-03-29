@@ -4,19 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#0A000000"
     tools:context=".MainActivity">
 
     <TextView
-<<<<<<< HEAD
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login to your Account"
-        android:textAllCaps="false"
-        android:textSize="25sp"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="160dp" />
-=======
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,71 +19,120 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
->>>>>>> 0e806f27b7670727fed659b2051a0105b0bfd939
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/textLoginAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/source_serif_pro"
+        android:text="Login to your Account"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textEnterLoginEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_serif_pro"
         android:text="Enter your email name"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="214dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLoginAccount" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress4"
-        android:layout_width="296dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="whoho@unai.edu"
+        android:id="@+id/editTextLoginEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_edittext_background"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="233dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEnterLoginEmail" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/textEnterLoginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_serif_pro"
         android:text="Enter your password"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginEmail" />
 
     <EditText
-        android:id="@+id/editTextTextPassword4"
-        android:layout_width="293dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="****"
+        android:id="@+id/editTextLoginPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_edittext_background"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="326dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEnterLoginPassword" />
 
     <Button
-        android:id="@+id/button31"
-        android:layout_width="330dp"
-        android:layout_height="55dp"
+        android:id="@+id/buttonSignIn"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/rounded_button_background"
+        android:backgroundTint="#8359E3"
+        android:fontFamily="@font/crimson_pro_semibold"
         android:text="Sign in"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="446dp" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLoginPassword" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Looking to get started? Register now to create your account."
-        android:textSize="11sp"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="386dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/crimson_pro_semibold"
+        android:text="Looking to get started?"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/textRegister"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
 
-<TextView
-android:id="@+id/textView8"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginTop="50dp"
-android:fontFamily="@font/montserrat_extrabold"
-android:text="SportBooker"
-android:textColor="#F84995"
-android:textSize="130px"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:fontFamily="@font/crimson_pro_semibold"
+        android:text=" Register "
+        android:textColor="#8359E3"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView29"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="35dp"
+        android:fontFamily="@font/crimson_pro_semibold"
+        android:text="now to create your account."
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRegister"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
