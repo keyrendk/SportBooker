@@ -3,6 +3,7 @@ package com.example.sportbooker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -15,22 +16,33 @@ import java.util.HashMap;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText editTextUsername = findViewById(R.id.editTextUsername);
-    private EditText editTextFirstName = findViewById(R.id.editTextFirstName);
-    private EditText editTextLastName = findViewById(R.id.editTextLastName);
-    private EditText editTextEmail = findViewById(R.id.editTextRegisterEmail);
-    private EditText editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
-    private EditText editTextPassword = findViewById(R.id.editTextPassword);
-    private EditText editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
-    private TextView textSignIn = findViewById(R.id.textSignIn);
-    private Button buttonSignUp = findViewById(R.id.buttonSignUp);
+    private EditText editTextUsername;
+    private EditText editTextFirstName;
+    private EditText editTextLastName;
+    private EditText editTextEmail;
+    private EditText editTextPhoneNumber;
+    private EditText editTextPassword;
+    private EditText editTextConfirmPassword;
+    private TextView textSignIn;
+    private Button buttonSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        editTextUsername = (EditText) findViewById(R.id.editTextUsername);
+        editTextFirstName = (EditText) findViewById(R.id.editTextFirstName);
+        editTextLastName = (EditText) findViewById(R.id.editTextLastName);
+        editTextEmail = (EditText) findViewById(R.id.editTextRegisterEmail);
+        editTextPhoneNumber = (EditText) findViewById(R.id.editTextPhoneNumber);
+        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextConfirmPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
+        textSignIn = (TextView) findViewById(R.id.textSignIn);
+        buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
+
         buttonSignUp.setOnClickListener(this);
+        textSignIn.setOnClickListener(this);
     }
 
     private void addUser() {
@@ -78,6 +90,27 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        addUser();
+        if(v == buttonSignUp) {
+            String username = editTextUsername.getText().toString();
+            String first_name = editTextFirstName.getText().toString();
+            String last_name = editTextLastName.getText().toString();
+            String email = editTextEmail.getText().toString();
+            String password = editTextPassword.getText().toString();
+            String confirmPassword = editTextConfirmPassword.getText().toString();
+            String phone_number = editTextPhoneNumber.getText().toString();
+
+            if(username.isEmpty() || first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || phone_number.isEmpty()) {
+                Toast.makeText(SignUp.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            } else if(!editTextConfirmPassword.getText().toString().equals(editTextPassword.getText().toString())) {
+                Toast.makeText(SignUp.this, "Password is not the same", Toast.LENGTH_SHORT).show();
+            } else {
+                addUser();
+                startActivity(new Intent(this, MainActivity.class));
+            }
+        }
+
+        if(v == textSignIn) {
+            startActivity(new Intent(this, MainActivity.class));
+        }
     }
 }
