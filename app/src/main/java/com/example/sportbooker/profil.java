@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -15,37 +16,45 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class profil extends AppCompatActivity {
     private TextView textUserUsernameProfile;
-    private EditText textFirstNameProfile;
-    private EditText textLastNameProfile;
-    private EditText textEmailProfile;
-    private EditText textPhoneNumberProfile;
+    private TextView textFirstNameProfile;
+    private TextView textLastNameProfile;
+    private TextView textEmailProfile;
+    private TextView textPhoneNumberProfile;
     private String user_id;
     private String JSON_STRING;
     private ListView listView;
+    private Button buttonUpdateProfile;
+    private Button buttonDeleteProfile;
+    private Button buttonLogOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
         textUserUsernameProfile = (TextView) findViewById(R.id.textUserUsernameProfile);
-        textFirstNameProfile = (EditText) findViewById(R.id.textFirstNameProfile);
-        textLastNameProfile = (EditText) findViewById(R.id.textLastNameProfile);
-        textEmailProfile = (EditText) findViewById(R.id.textEmailProfile);
-        textPhoneNumberProfile = (EditText) findViewById(R.id.textPhoneNumberProfile);
+        textFirstNameProfile = (TextView) findViewById(R.id.textFirstNameProfile);
+        textLastNameProfile = (TextView) findViewById(R.id.textLastNameProfile);
+        textEmailProfile = (TextView) findViewById(R.id.textEmailProfile);
+        textPhoneNumberProfile = (TextView) findViewById(R.id.textPhoneNumberProfile);
         listView = (ListView) findViewById(R.id.listView);
+        buttonUpdateProfile = (Button) findViewById(R.id.buttonUpdateProfile);
+        buttonDeleteProfile = (Button) findViewById(R.id.buttonDeleteProfile);
+        buttonLogOut = (Button) findViewById(R.id.buttonLogOut);
 
         Intent intent = getIntent();
         user_id = intent.getStringExtra(configuration.USER_ID);
 
         getUserProfile();
         getJSON();
+
+
     }
 
     private void getUserProfile() {

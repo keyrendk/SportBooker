@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class sports extends AppCompatActivity {
+    // deklarasi variabel yang digunakan
     private TextView textUserUsername;
     private ImageView profilePicture;
     private Button btnFootball;
@@ -26,14 +27,18 @@ public class sports extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports);
 
+        // inisialisasi variabel
         textUserUsername = (TextView) findViewById(R.id.textUserUsername);
         profilePicture = (ImageView) findViewById(R.id.profilePicture);
         btnFootball = (Button) findViewById(R.id.btnFootball);
 
+        // mengambil user_id yang dikirimkan dari MainActivity
         Intent intent = getIntent();
         user_id = intent.getStringExtra(configuration.USER_ID);
 
+        // menjalankan method getUsername untuk menampilkan username
         getUsername();
+
 
         textUserUsername.setOnClickListener(new View.OnClickListener() {
             @Override
