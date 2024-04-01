@@ -76,6 +76,42 @@ public class sports extends AppCompatActivity {
                 startActivity(intentBookingFootball);
             }
         });
+        btnBadminton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBookingBadminton = getIntent();
+                intentBookingBadminton = new Intent(sports.this, booking.class);
+                intentBookingBadminton.putExtra(configuration.SPORT_TYPE, "Badminton");
+                startActivity(intentBookingBadminton);
+            }
+        });
+        btnBasketball.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBookingBasketball = getIntent();
+                intentBookingBasketball = new Intent(sports.this, booking.class);
+                intentBookingBasketball.putExtra(configuration.SPORT_TYPE, "Basketball");
+                startActivity(intentBookingBasketball);
+            }
+        });
+        btnFutsal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBookingFutsal = getIntent();
+                intentBookingFutsal = new Intent(sports.this, booking.class);
+                intentBookingFutsal.putExtra(configuration.SPORT_TYPE, "Futsal");
+                startActivity(intentBookingFutsal);
+            }
+        });
+        btnVolleyball.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBookingVolleyball = getIntent();
+                intentBookingVolleyball = new Intent(sports.this, booking.class);
+                intentBookingVolleyball.putExtra(configuration.SPORT_TYPE, "Volleyball");
+                startActivity(intentBookingVolleyball);
+            }
+        });
     }
 
     private void getUsername() {
