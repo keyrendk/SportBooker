@@ -20,6 +20,11 @@ public class sports extends AppCompatActivity {
     private TextView textUserUsername;
     private ImageView profilePicture;
     private Button btnFootball;
+    private Button btnVolleyball;
+    private Button btnFutsal;
+    private Button btnBasketball;
+    private Button btnBadminton;
+
     private String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,10 @@ public class sports extends AppCompatActivity {
         textUserUsername = (TextView) findViewById(R.id.textUserUsername);
         profilePicture = (ImageView) findViewById(R.id.profilePicture);
         btnFootball = (Button) findViewById(R.id.btnFootball);
+        btnVolleyball = (Button) findViewById(R.id.btnVolleyball);
+        btnFutsal = (Button) findViewById(R.id.btnFutsal);
+        btnBasketball = (Button) findViewById(R.id.btnBasketball);
+        btnBadminton = (Button) findViewById(R.id.btnBadminton);
 
         Intent intent = getIntent();
         user_id = intent.getStringExtra(configuration.USER_ID);
