@@ -90,6 +90,7 @@
         android:backgroundTint="#8359E3"
         android:fontFamily="@font/crimson_pro_semibold"
         android:text="Sign in"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

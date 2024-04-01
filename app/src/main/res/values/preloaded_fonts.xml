@@ -6,5 +6,7 @@
         <item>@font/montserrat_extrabold</item>
         <item>@font/source_sans_pro_extralight</item>
         <item>@font/source_serif_pro</item>
+        <item>@font/source_serif_pro_bold</item>
+        <item>@font/source_serif_pro_semibold</item>
     </array>
 </resources>

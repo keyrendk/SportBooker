@@ -6,7 +6,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -15,18 +18,50 @@ import org.json.JSONObject;
 
 public class sports extends AppCompatActivity {
     private TextView textUserUsername;
-    private String id;
+    private ImageView profilePicture;
+    private Button btnFootball;
+    private String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports);
 
         textUserUsername = (TextView) findViewById(R.id.textUserUsername);
+        profilePicture = (ImageView) findViewById(R.id.profilePicture);
+        btnFootball = (Button) findViewById(R.id.btnFootball);
 
         Intent intent = getIntent();
-        id = intent.getStringExtra(configuration.USER_ID);
+        user_id = intent.getStringExtra(configuration.USER_ID);
 
         getUsername();
+
+        textUserUsername.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(sports.this, profil.class);
+                intent1.putExtra(configuration.USER_ID, user_id);
+                startActivity(intent1);
+            }
+        });
+
+        profilePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(sports.this, profil.class);
+                intent2.putExtra(configuration.USER_ID, user_id);
+                startActivity(intent2);
+            }
+        });
+
+        btnFootball.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBookingFootball = getIntent();
+                intentBookingFootball = new Intent(sports.this, booking.class);
+                intentBookingFootball.putExtra(configuration.SPORT_TYPE, "Football");
+                startActivity(intentBookingFootball);
+            }
+        });
     }
 
     private void getUsername() {
@@ -49,7 +84,7 @@ public class sports extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(configuration.URL_GET_USERNAME_USER, id);
+                String s = rh.sendGetRequestParam(configuration.URL_GET_USERNAME_USER, user_id);
                 return s;
             }
         }
