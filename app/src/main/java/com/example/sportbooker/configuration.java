@@ -12,12 +12,13 @@ public class configuration {
     public static final String URL_GET_ORDER_HISTORY = URL_BASE + "showOrderHistory.php?user_id=";
     public static final String URL_LOGOUT = URL_BASE + "logout.php";
 
-    public static final String KEY_USER_ID = "id";
+    public static final String KEY_USER_ID = "user_id";
     public static final String KEY_USER_USERNAME = "username";
     public static final String KEY_USER_FIRST_NAME = "first_name";
     public static final String KEY_USER_LAST_NAME = "last_name";
     public static final String KEY_USER_EMAIL = "email";
     public static final String KEY_USER_PASSWORD = "password";
+    public static final String KEY_USER_CONFIRM_PASSWORD = "confirm_password";
     public static final String KEY_USER_PHONE_NUMBER = "phone_number";
 
     public static final String TAG_JSON_ARRAY = "result";

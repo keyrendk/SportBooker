@@ -251,7 +251,9 @@ public class profil extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(profil.this, s, Toast.LENGTH_LONG).show();
+                Toast.makeText(profil.this, s, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(profil.this, MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
@@ -261,5 +263,7 @@ public class profil extends AppCompatActivity {
                 return s;
             }
         }
+        Logout l = new Logout();
+        l.execute();
     }
 }
