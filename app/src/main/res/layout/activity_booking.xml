@@ -7,49 +7,54 @@
     tools:context=".booking">
 
     <TextView
+        android:id="@+id/textUserUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/username_background"
+        android:clickable="true"
+        android:fontFamily="@font/source_serif_pro"
+        android:text="User ID"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/profilePicture"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/user_profile_round" />
+
+    <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:text="SportBooker"
         android:textColor="#F84995"
         android:textSize="130px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Monday"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="169dp" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tuesday"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="169dp" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wednesday"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="169dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textUserUsername" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textSportType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Football"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="143dp" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/source_serif_pro"
+        android:text="Sport Type"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"/>
 
     <TextView
         android:id="@+id/textView10"
@@ -195,13 +200,6 @@
         tools:layout_editor_absoluteX="69dp"
         tools:layout_editor_absoluteY="642dp" />
 
-    <Button
-        android:id="@+id/button30"
-        android:layout_width="98dp"
-        android:layout_height="37dp"
-        android:text="Whoho"
-        tools:layout_editor_absoluteX="288dp"
-        tools:layout_editor_absoluteY="13dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

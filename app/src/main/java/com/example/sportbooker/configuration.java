@@ -10,6 +10,7 @@ public class configuration {
     public static final String URL_UPDATE_USER = URL_BASE + "updateUser.php";
     public static final String URL_DELETE_USER = URL_BASE + "deleteUser.php?user_id=";
     public static final String URL_GET_ORDER_HISTORY = URL_BASE + "showOrderHistory.php?user_id=";
+    public static final String URL_LOGOUT = URL_BASE + "logout.php";
 
     public static final String KEY_USER_ID = "id";
     public static final String KEY_USER_USERNAME = "username";

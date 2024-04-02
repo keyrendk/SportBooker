@@ -2,16 +2,20 @@ package com.example.sportbooker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,7 +58,28 @@ public class profil extends AppCompatActivity {
         getUserProfile();
         getJSON();
 
+        buttonUpdateProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentUpdate = new Intent(profil.this, updateUser.class);
+                intentUpdate.putExtra(configuration.USER_ID, user_id);
+                startActivity(intentUpdate);
+            }
+        });
 
+        buttonDeleteProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confrimDeleteProfile();
+            }
+        });
+
+        buttonLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
     }
 
     private void getUserProfile() {
@@ -159,5 +184,82 @@ public class profil extends AppCompatActivity {
         }
         ListAdapter adapter = new SimpleAdapter(profil.this, list, R.layout.booking_history_list, new String[]{configuration.TAG_BOOKING_DATE, configuration.TAG_BOOKING_ID, configuration.TAG_AMOUNT}, new int[]{R.id.date, R.id.booking_id, R.id.amount});
         listView.setAdapter(adapter);
+    }
+
+    private void confrimDeleteProfile() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Are you sure you want to delete this account?");
+
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                deleteProfile();
+                startActivity(new Intent(profil.this, MainActivity.class));
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void deleteProfile() {
+        class DeleteProfile extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(profil.this, "Delete...", "Wait...", false, false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(profil.this, s, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                RequestHandler rh = new RequestHandler();
+                String s = rh.sendGetRequestParam(configuration.URL_DELETE_USER, user_id);
+                return s;
+            }
+        }
+        DeleteProfile dp = new DeleteProfile();
+        dp.execute();
+    }
+
+    private void logout() {
+        class Logout extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(profil.this, "Logout...", "Wait...", false, false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(profil.this, s, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                RequestHandler rh = new RequestHandler();
+                String s = rh.sendGetRequest(configuration.URL_LOGOUT);
+                return s;
+            }
+        }
     }
 }
