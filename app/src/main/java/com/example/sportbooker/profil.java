@@ -138,7 +138,7 @@ public class profil extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(profil.this, "Retrieving Data", "Please Wait...", false, false);
+                loading = ProgressDialog.show(profil.this, "Retrieving Data...", "Please Wait...", false, false);
             }
 
             @Override

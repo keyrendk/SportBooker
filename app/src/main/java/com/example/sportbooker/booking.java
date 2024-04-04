@@ -8,11 +8,17 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class booking extends AppCompatActivity {
     // deklarasi variabel
@@ -21,6 +27,8 @@ public class booking extends AppCompatActivity {
     private TextView textSportType;
     private String user_id;
     private String sport_type;
+    private String JSON_STRING;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +39,16 @@ public class booking extends AppCompatActivity {
         textUserUsername = (TextView) findViewById(R.id.textUserUsername);
         profilePicture = (ImageView) findViewById(R.id.profilePicture);
         textSportType = (TextView) findViewById(R.id.textSportType);
+        listView = (ListView) findViewById(R.id.listFacility);
 
         // mengambil user_id dan sport_type dari sports
         Intent intent = getIntent();
         user_id = intent.getStringExtra(configuration.USER_ID);
         sport_type = intent.getStringExtra(configuration.SPORT_TYPE);
 
-        // menjalankan method getUsername untuk menampilkan username
         getUsername();
         textSportType.setText(sport_type);
+        getFacilities();
 
         // setOnClickListener
         textUserUsername.setOnClickListener(new View.OnClickListener() {
@@ -100,5 +109,62 @@ public class booking extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private void getFacilities() {
+        class GetFacilities extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(booking.this, "Retrieving Data...", "Please Wait...", false, false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                JSON_STRING = s;
+                showFacilities();
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                RequestHandler rh = new RequestHandler();
+                String s = rh.sendGetRequestParam(configuration.URL_GET_FACILITY, sport_type);
+                return s;
+            }
+        }
+        GetFacilities gf = new GetFacilities();
+        gf.execute();
+    }
+
+    private void showFacilities() {
+        JSONObject jsonObject = null;
+        ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+        try {
+            jsonObject = new JSONObject(JSON_STRING);
+            JSONArray result = jsonObject.getJSONArray(configuration.TAG_JSON_ARRAY);
+
+            for(int i = 0; i < result.length(); i++) {
+                JSONObject jo = result.getJSONObject(i);
+                String facility_name = jo.getString(configuration.TAG_FACILITY_FACILITY_NAME);
+                String facility_type = jo.getString(configuration.TAG_FACILITY_FACILITY_TYPE);
+                String description = jo.getString(configuration.TAG_FACILITY_DESCRIPTION);
+                String price = jo.getString(configuration.TAG_FACILITY_PRICE);
+
+                HashMap<String, String> facilities = new HashMap<>();
+                facilities.put(configuration.TAG_FACILITY_FACILITY_NAME, facility_name);
+                facilities.put(configuration.TAG_FACILITY_FACILITY_TYPE, facility_type);
+                facilities.put(configuration.TAG_FACILITY_DESCRIPTION, description);
+                facilities.put(configuration.TAG_FACILITY_PRICE, price);
+                list.add(facilities);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ListAdapter adapter = new SimpleAdapter(booking.this, list, R.layout.booking_list, new String[]{configuration.TAG_FACILITY_FACILITY_NAME, configuration.TAG_FACILITY_FACILITY_TYPE, configuration.TAG_FACILITY_DESCRIPTION, configuration.TAG_FACILITY_PRICE}, new int[]{R.id.facilityName, R.id.facilityType, R.id.facilityDescription, R.id.facilityPrice});
+        listView.setAdapter(adapter);
     }
 }
