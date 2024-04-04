@@ -72,6 +72,7 @@ public class sports extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentBookingFootball = getIntent();
                 intentBookingFootball = new Intent(sports.this, booking.class);
+                intentBookingFootball.putExtra(configuration.USER_ID, user_id);
                 intentBookingFootball.putExtra(configuration.SPORT_TYPE, "Football");
                 startActivity(intentBookingFootball);
             }
