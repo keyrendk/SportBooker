@@ -82,6 +82,7 @@ public class sports extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentBookingBadminton = getIntent();
                 intentBookingBadminton = new Intent(sports.this, booking.class);
+                intentBookingBadminton.putExtra(configuration.USER_ID, user_id);
                 intentBookingBadminton.putExtra(configuration.SPORT_TYPE, "Badminton");
                 startActivity(intentBookingBadminton);
             }
@@ -91,6 +92,7 @@ public class sports extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentBookingBasketball = getIntent();
                 intentBookingBasketball = new Intent(sports.this, booking.class);
+                intentBookingBasketball.putExtra(configuration.USER_ID, user_id);
                 intentBookingBasketball.putExtra(configuration.SPORT_TYPE, "Basketball");
                 startActivity(intentBookingBasketball);
             }
@@ -100,6 +102,7 @@ public class sports extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentBookingFutsal = getIntent();
                 intentBookingFutsal = new Intent(sports.this, booking.class);
+                intentBookingFutsal.putExtra(configuration.USER_ID, user_id);
                 intentBookingFutsal.putExtra(configuration.SPORT_TYPE, "Futsal");
                 startActivity(intentBookingFutsal);
             }
@@ -109,6 +112,7 @@ public class sports extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentBookingVolleyball = getIntent();
                 intentBookingVolleyball = new Intent(sports.this, booking.class);
+                intentBookingVolleyball.putExtra(configuration.USER_ID, user_id);
                 intentBookingVolleyball.putExtra(configuration.SPORT_TYPE, "Volleyball");
                 startActivity(intentBookingVolleyball);
             }
