@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:nestedScrollingEnabled="false"
     tools:context=".booking" >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,6 +55,16 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dayList"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/textSportType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"></androidx.recyclerview.widget.RecyclerView>
         <ListView
             android:id="@+id/listFacility"
             android:layout_width="match_parent"
@@ -62,7 +73,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSportType"/>
+            app:layout_constraintTop_toBottomOf="@+id/dayList"/>
         <Button
             android:id="@+id/buttonCancel"
             android:layout_width="0dp"

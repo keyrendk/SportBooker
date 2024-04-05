@@ -10,7 +10,8 @@ public class configuration {
     public static final String URL_UPDATE_USER = URL_BASE + "updateUser.php";
     public static final String URL_DELETE_USER = URL_BASE + "deleteUser.php?user_id=";
     public static final String URL_GET_ORDER_HISTORY = URL_BASE + "showOrderHistory.php?user_id=";
-    public static final String URL_GET_FACILITY = URL_BASE + "showFacility";
+    public static final String URL_GET_FACILITY = URL_BASE + "showFacility.php";
+    public static final String URL_GET_SCHEDULE_DAY = URL_BASE + "showScheduleDay.php";
     public static final String URL_LOGOUT = URL_BASE + "logout.php";
 
     public static final String KEY_USER_ID = "user_id";
@@ -37,6 +38,8 @@ public class configuration {
     public static final String TAG_FACILITY_FACILITY_TYPE = "facility_type";
     public static final String TAG_FACILITY_DESCRIPTION = "description";
     public static final String TAG_FACILITY_PRICE = "price";
+    public static final String TAG_SCHEDULE_DATE = "date";
+    public static final String TAG_SCHEDULE_DAY = "day";
 
     public static final String USER_ID = "user_id";
 
