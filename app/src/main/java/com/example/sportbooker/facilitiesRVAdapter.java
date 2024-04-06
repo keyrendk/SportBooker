@@ -119,6 +119,10 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             facilityPrice = itemView.findViewById(R.id.facilityPrice);
             startHour1 = itemView.findViewById(R.id.startHour1);
             startHour2 = itemView.findViewById(R.id.startHour2);
+            startHour3 = itemView.findViewById(R.id.startHour3);
+            startHour4 = itemView.findViewById(R.id.startHour4);
+            startHour5 = itemView.findViewById(R.id.startHour5);
+            startHour6 = itemView.findViewById(R.id.startHour6);
         }
     }
 
