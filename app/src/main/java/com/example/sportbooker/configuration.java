@@ -10,7 +10,7 @@ public class configuration {
     public static final String URL_UPDATE_USER = URL_BASE + "updateUser.php";
     public static final String URL_DELETE_USER = URL_BASE + "deleteUser.php?user_id=";
     public static final String URL_GET_ORDER_HISTORY = URL_BASE + "showOrderHistory.php?user_id=";
-    public static final String URL_GET_FACILITY = URL_BASE + "showFacility.php";
+    public static final String URL_GET_FACILITY = URL_BASE + "showFacility.php?sport_type=";
     public static final String URL_GET_SCHEDULE_DAY = URL_BASE + "showScheduleDay.php";
     public static final String URL_LOGOUT = URL_BASE + "logout.php";
 
@@ -34,6 +34,7 @@ public class configuration {
     public static final String TAG_BOOKING_DATE = "booking_date";
     public static final String TAG_BOOKING_ID = "booking_id";
     public static final String TAG_AMOUNT = "amount";
+    public static final String TAG_FACILITY_FACILITY_ID = "facility_id";
     public static final String TAG_FACILITY_FACILITY_NAME = "facility_name";
     public static final String TAG_FACILITY_FACILITY_TYPE = "facility_type";
     public static final String TAG_FACILITY_DESCRIPTION = "description";
@@ -44,4 +45,5 @@ public class configuration {
     public static final String USER_ID = "user_id";
 
     public static final String SPORT_TYPE = "sport_type";
+    public static final String START_HOUR = "start_hour";
 }

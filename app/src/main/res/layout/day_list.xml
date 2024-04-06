@@ -3,13 +3,16 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center">
+    android:gravity="center"
+    android:layout_marginTop="10dp">
     <Button
         android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_day_button"
         android:text="saturday"
         android:textAllCaps="true"
         android:fontFamily="@font/source_serif_pro_bold"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_marginHorizontal="5dp"/>
 </LinearLayout>

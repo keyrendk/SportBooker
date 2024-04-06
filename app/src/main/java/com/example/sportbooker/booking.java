@@ -10,10 +10,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,7 +28,8 @@ public class booking extends AppCompatActivity {
     private String user_id;
     private String sport_type;
     private String JSON_STRING;
-    private ListView listView;
+    private String dayName;
+    private RecyclerView listView;
     private RecyclerView listDay;
 
     @Override
@@ -42,7 +41,7 @@ public class booking extends AppCompatActivity {
         textUserUsername = (TextView) findViewById(R.id.textUserUsername);
         profilePicture = (ImageView) findViewById(R.id.profilePicture);
         textSportType = (TextView) findViewById(R.id.textSportType);
-        listView = (ListView) findViewById(R.id.listFacility);
+        listView = (RecyclerView) findViewById(R.id.listFacility);
         listDay = (RecyclerView) findViewById(R.id.dayList);
 
         // mengambil user_id dan sport_type dari sports
@@ -154,23 +153,27 @@ public class booking extends AppCompatActivity {
 
             for(int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
+                String facility_id = jo.getString(configuration.TAG_FACILITY_FACILITY_ID);
                 String facility_name = jo.getString(configuration.TAG_FACILITY_FACILITY_NAME);
                 String facility_type = jo.getString(configuration.TAG_FACILITY_FACILITY_TYPE);
                 String description = jo.getString(configuration.TAG_FACILITY_DESCRIPTION);
                 String price = jo.getString(configuration.TAG_FACILITY_PRICE);
 
                 HashMap<String, String> facilities = new HashMap<>();
+                facilities.put(configuration.TAG_FACILITY_FACILITY_ID, facility_id);
                 facilities.put(configuration.TAG_FACILITY_FACILITY_NAME, facility_name);
                 facilities.put(configuration.TAG_FACILITY_FACILITY_TYPE, facility_type);
                 facilities.put(configuration.TAG_FACILITY_DESCRIPTION, description);
                 facilities.put(configuration.TAG_FACILITY_PRICE, price);
                 list.add(facilities);
+
+                facilitiesRVAdapter adapter = new facilitiesRVAdapter(list,this);
+                listView.setLayoutManager(new LinearLayoutManager(this));
+                listView.setAdapter(adapter);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ListAdapter adapter = new SimpleAdapter(booking.this, list, R.layout.booking_list, new String[]{configuration.TAG_FACILITY_FACILITY_NAME, configuration.TAG_FACILITY_FACILITY_TYPE, configuration.TAG_FACILITY_DESCRIPTION, configuration.TAG_FACILITY_PRICE}, new int[]{R.id.facilityName, R.id.facilityType, R.id.facilityDescription, R.id.facilityPrice});
-        listView.setAdapter(adapter);
     }
 
     private void getScheduleDay() {
@@ -222,6 +225,14 @@ public class booking extends AppCompatActivity {
             LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
             listDay.setLayoutManager(layoutManager);
             listDay.setAdapter(adapter);
+
+            adapter.setButtonClickListener(new scheduleRVAdapter.DayButtonClick() {
+                @Override
+                public void onButtonClick(int position, String buttonText) {
+                    dayName = buttonText;
+                    Toast.makeText(booking.this, "Day : " + dayName, Toast.LENGTH_SHORT).show();
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
