@@ -59,6 +59,38 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
                 Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
             }
         });
+
+        holder.startHour3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startHour = holder.startHour3.getText().toString();
+                Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.startHour4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startHour = holder.startHour4.getText().toString();
+                Toast.makeText(context,"Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.startHour5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startHour = holder.startHour5.getText().toString();
+                Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.startHour6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startHour = holder.startHour6.getText().toString();
+                Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -73,6 +105,11 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
         TextView facilityDescription;
         Button startHour1;
         Button startHour2;
+        Button startHour3;
+        Button startHour4;
+        Button startHour5;
+        Button startHour6;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
