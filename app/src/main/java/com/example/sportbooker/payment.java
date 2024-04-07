@@ -69,7 +69,7 @@ public class payment extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestTwoParam(configuration.URL_GET_FACILITY, facility_id, start_hour);
+                String s = rh.sendGetFacilityRequest(configuration.URL_GET_FACILITY, facility_id, start_hour, finish_hour);
                 return s;
             }
         }
@@ -80,7 +80,6 @@ public class payment extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray result = jsonObject.getJSONArray(configuration.TAG_JSON_ARRAY);
             JSONObject c = result.getJSONObject(0);
-            String
         } catch (JSONException e) {
             e.printStackTrace();
         }

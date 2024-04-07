@@ -74,8 +74,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = "12:00:00";
-                finishHour = "14:00:00";
+                startHour = "13:00:00";
+                finishHour = "15:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
@@ -85,8 +85,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = "14:00:00";
-                finishHour = "16:00:00";
+                startHour = "15:00:00";
+                finishHour = "17:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
@@ -96,8 +96,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = "16:00:00";
-                finishHour = "18:00:00";
+                startHour = "17:00:00";
+                finishHour = "19:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
@@ -107,8 +107,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = "18:00:00";
-                finishHour = "20:00:00";
+                startHour = "19:00:00";
+                finishHour = "21:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
