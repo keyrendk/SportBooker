@@ -28,6 +28,7 @@ public class payment extends AppCompatActivity {
     private String facility_id;
     private String start_hour;
     private String finish_hour;
+    private String paymentMethod;
 
 
 
