@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,8 @@ public class booking extends AppCompatActivity {
     private String dayName;
     private RecyclerView listView;
     private RecyclerView listDay;
+    private Button cancel;
+    private Button payment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class booking extends AppCompatActivity {
         textSportType = (TextView) findViewById(R.id.textSportType);
         listView = (RecyclerView) findViewById(R.id.listFacility);
         listDay = (RecyclerView) findViewById(R.id.dayList);
+        cancel = (Button) findViewById(R.id.buttonCancel);
+        payment = (Button) findViewById(R.id.buttonPayment);
 
         // mengambil user_id dan sport_type dari sports
         Intent intent = getIntent();
@@ -70,6 +75,23 @@ public class booking extends AppCompatActivity {
                 Intent intent2 = new Intent(booking.this, profil.class);
                 intent2.putExtra(configuration.USER_ID, user_id);
                 startActivity(intent2);
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCancel = new Intent(booking.this, sports.class);
+                startActivity(intentCancel);
+            }
+        });
+
+        payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentPayment = new Intent(booking.this, payment.class);
+                intentPayment.putExtra(configuration.USER_ID, user_id);
+                startActivity(intentPayment);
             }
         });
     }
