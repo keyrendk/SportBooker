@@ -45,7 +45,7 @@ public class scheduleRVAdapter extends RecyclerView.Adapter<scheduleRVAdapter.Vi
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 if(position != RecyclerView.NO_POSITION && dayButtonClick != null) {
-                    dayButtonClick.onButtonClick(position,buttonText);
+                    dayButtonClick.onButtonClick(position, buttonText);
                 }
             }
         });

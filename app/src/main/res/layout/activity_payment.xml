@@ -5,101 +5,194 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".payment">
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_extrabold"
-        android:text="SportBooker"
-        android:textColor="#F84995"
+        android:text="Order Details"
+        android:textColor="#000"
         android:textSize="130px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/dateOrderDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Payment Method"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="137dp" />
-
-    <Button
-        android:id="@+id/button24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="181dp" />
-
-    <Button
-        android:id="@+id/button25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="181dp" />
-
-    <Button
-        android:id="@+id/button26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="181dp" />
-
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/source_serif_pro"
+        android:text="Date"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
     <TextView
-        android:id="@+id/textView17"
+        android:id="@id/dataDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rounded_edittext_background2"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateOrderDetail"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/facilityNameOrderDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Card Number"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="263dp" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="313dp"
-        android:layout_height="46dp"
-        android:ems="10"
-        android:hint="0812xxx"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_serif_pro"
+        android:text="Facility Name"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataDate" />
+    <TextView
+        android:id="@+id/dataFacilityName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rounded_edittext_background2"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/facilityNameOrderDetail"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <LinearLayout
+        android:id="@+id/textHour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataFacilityName"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:id="@+id/startHourOrderDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:text="Start Hour"
+            android:fontFamily="@font/source_serif_pro"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/finishHourOrderDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:text="Finish Hour"
+            android:fontFamily="@font/source_serif_pro"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/dataHour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHour"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:id="@+id/dataStartHour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edittext_background2"
+            android:inputType="time" />
+        <TextView
+            android:id="@+id/dataFinishHour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_edittext_background2"
+            android:inputType="time" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/totalOrderDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_serif_pro"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataHour"/>
+    <TextView
+        android:id="@+id/dataAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rounded_edittext_background2"
         android:inputType="number"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="292dp" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalOrderDetail"
+        app:layout_constraintEnd_toEndOf="parent" />
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textPaymentMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order Details"
-        tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="389dp" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_serif_pro"
+        android:text="Select Payment Method"
+        android:textColor="#000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataAmount"/>
+    <LinearLayout
+        android:id="@+id/dataPaymentMethod"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TOTAL :                                             Rp 50.000"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="453dp" />
-
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textPaymentMethod"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <Button
+            android:id="@+id/button24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QRIS"
+            android:fontFamily="@font/source_serif_pro"
+            android:textColor="#000"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/button25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DANA"
+            android:fontFamily="@font/source_serif_pro"
+            android:textColor="#000"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/button26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OVO"
+            android:fontFamily="@font/source_serif_pro"
+            android:textColor="#000"
+            android:layout_weight="1" />
+    </LinearLayout>
     <Button
-        android:id="@+id/button27"
-        android:layout_width="245dp"
-        android:layout_height="48dp"
+        android:id="@+id/buttonPayNow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
         android:text="Pay Now"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="595dp" />
-
-    <Button
-        android:id="@+id/button29"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:text="Whoho"
-        tools:layout_editor_absoluteX="297dp"
-        tools:layout_editor_absoluteY="12dp" />
-
-
+        android:fontFamily="@font/source_serif_pro_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataPaymentMethod"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

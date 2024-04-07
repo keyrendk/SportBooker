@@ -18,14 +18,16 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
     private ArrayList<HashMap<String, String>> facilityList;
     private Context context;
     private FacilityButtonClick facilityButtonClick;
+    private String facility_id;
     private String startHour;
+    private String finishHour;
 
     public facilitiesRVAdapter(ArrayList<HashMap<String, String>> facilityList, Context context) {
         this.facilityList = facilityList;
         this.context = context;
     }
 
-    public void setButtonOnClickListener(FacilityButtonClick facilityButtonClick) {
+    public void setFacilityButtonClick(FacilityButtonClick facilityButtonClick) {
         this.facilityButtonClick = facilityButtonClick;
     }
 
@@ -39,6 +41,7 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HashMap<String, String> facility = facilityList.get(position);
+        holder.facilityID = facility.get(configuration.TAG_FACILITY_FACILITY_ID);
         holder.facilityName.setText(facility.get(configuration.TAG_FACILITY_FACILITY_NAME));
         holder.facilityType.setText(facility.get(configuration.TAG_FACILITY_FACILITY_TYPE));
         holder.facilityDescription.setText(facility.get(configuration.TAG_FACILITY_DESCRIPTION));
@@ -47,15 +50,20 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
         holder.startHour1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                facility_id = holder.facilityID;
                 startHour = holder.startHour1.getText().toString();
-                Toast.makeText(context,"Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+                finishHour = "10:00";
+                facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
 
         holder.startHour2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                facility_id = holder.facilityID;
                 startHour = holder.startHour2.getText().toString();
+                finishHour = "12:00";
                 Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
             }
         });
@@ -99,6 +107,7 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        String facilityID;
         TextView facilityName;
         TextView facilityType;
         TextView facilityPrice;
@@ -113,6 +122,7 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
+            facilityID = "";
             facilityName = itemView.findViewById(R.id.facilityName);
             facilityType = itemView.findViewById(R.id.facilityType);
             facilityDescription = itemView.findViewById(R.id.facilityDescription);
@@ -127,6 +137,6 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
     }
 
     public interface FacilityButtonClick {
-        void onButtonClick(int position, String buttonText);
+        void onButtonClick(int position, String facilityId, String startHour, String finishHour);
     }
 }

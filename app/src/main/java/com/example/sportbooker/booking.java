@@ -30,6 +30,9 @@ public class booking extends AppCompatActivity {
     private String sport_type;
     private String JSON_STRING;
     private String dayName;
+    private String facility_id;
+    private String start_hour;
+    private String finish_hour;
     private RecyclerView listView;
     private RecyclerView listDay;
     private Button cancel;
@@ -91,6 +94,10 @@ public class booking extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentPayment = new Intent(booking.this, payment.class);
                 intentPayment.putExtra(configuration.USER_ID, user_id);
+                intentPayment.putExtra(configuration.SCHEDULE_DAY, dayName);
+                intentPayment.putExtra(configuration.FACILITY_ID, facility_id);
+                intentPayment.putExtra(configuration.START_HOUR, start_hour);
+                intentPayment.putExtra(configuration.FINISH_HOUR, finish_hour);
                 startActivity(intentPayment);
             }
         });
@@ -188,11 +195,19 @@ public class booking extends AppCompatActivity {
                 facilities.put(configuration.TAG_FACILITY_DESCRIPTION, description);
                 facilities.put(configuration.TAG_FACILITY_PRICE, price);
                 list.add(facilities);
-
-                facilitiesRVAdapter adapter = new facilitiesRVAdapter(list,this);
-                listView.setLayoutManager(new LinearLayoutManager(this));
-                listView.setAdapter(adapter);
             }
+
+            facilitiesRVAdapter adapter = new facilitiesRVAdapter(list, this);
+            listView.setLayoutManager(new LinearLayoutManager(this));
+            listView.setAdapter(adapter);
+            adapter.setFacilityButtonClick(new facilitiesRVAdapter.FacilityButtonClick() {
+                @Override
+                public void onButtonClick(int position, String facilityId, String startHour, String finishHour) {
+                    facility_id = facilityId;
+                    start_hour = startHour;
+                    finish_hour = finishHour;
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -252,7 +267,6 @@ public class booking extends AppCompatActivity {
                 @Override
                 public void onButtonClick(int position, String buttonText) {
                     dayName = buttonText;
-                    Toast.makeText(booking.this, "Day : " + dayName, Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (Exception e) {

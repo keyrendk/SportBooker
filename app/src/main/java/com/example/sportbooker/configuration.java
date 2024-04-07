@@ -46,4 +46,7 @@ public class configuration {
 
     public static final String SPORT_TYPE = "sport_type";
     public static final String START_HOUR = "start_hour";
+    public static final String SCHEDULE_DAY = "day";
+    public static final String FACILITY_ID = "facility_id";
+    public static final String FINISH_HOUR = "finish_hour";
 }
