@@ -74,8 +74,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = holder.startHour3.getText().toString();
-                finishHour = "14:00";
+                startHour = "12:00:00";
+                finishHour = "14:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
@@ -85,8 +85,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = holder.startHour4.getText().toString();
-                finishHour = "16:00";
+                startHour = "14:00:00";
+                finishHour = "16:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
@@ -96,8 +96,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = holder.startHour5.getText().toString();
-                finishHour = "18:00";
+                startHour = "16:00:00";
+                finishHour = "18:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
@@ -107,8 +107,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = holder.startHour6.getText().toString();
-                finishHour = "20:00";
+                startHour = "18:00:00";
+                finishHour = "20:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
