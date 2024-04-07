@@ -61,10 +61,11 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
         holder.startHour2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
                 startHour = holder.startHour2.getText().toString();
                 finishHour = "12:00";
-                Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+                facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
 
