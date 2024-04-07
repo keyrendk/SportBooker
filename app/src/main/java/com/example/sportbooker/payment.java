@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,6 +29,8 @@ public class payment extends AppCompatActivity {
     private String start_hour;
     private String finish_hour;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,9 @@ public class payment extends AppCompatActivity {
         dataFinishHour = (TextView) findViewById(R.id.dataFinishHour);
         dataAmount = (TextView) findViewById(R.id.dataAmount);
         qris = (Button) findViewById(R.id.qris);
+        dana = (Button) findViewById(R.id.dana);
+        ovo = (Button) findViewById(R.id.ovo);
+        payNow = (Button) findViewById(R.id.buttonPayNow);
 
         Intent intent = getIntent();
         day_name = intent.getStringExtra(configuration.SCHEDULE_DAY);
@@ -47,6 +53,35 @@ public class payment extends AppCompatActivity {
         finish_hour = intent.getStringExtra(configuration.FINISH_HOUR);
 
         getFacility();
+
+        // setOnClickListener
+        qris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        dana.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ovo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        payNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void getFacility() {
