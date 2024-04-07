@@ -59,7 +59,7 @@ public class payment extends AppCompatActivity {
         qris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                paymentMethod = qris.getText().toString().trim();
             }
         });
 
