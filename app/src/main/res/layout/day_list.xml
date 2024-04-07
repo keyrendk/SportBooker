@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_day_button"
-        android:text="saturday"
+        android:text="Saturday"
         android:textAllCaps="true"
         android:fontFamily="@font/source_serif_pro_bold"
         android:textSize="14sp"

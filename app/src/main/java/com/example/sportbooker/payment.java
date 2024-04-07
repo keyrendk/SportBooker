@@ -69,10 +69,12 @@ public class payment extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetFacilityRequest(configuration.URL_GET_FACILITY, facility_id, start_hour, finish_hour);
+                String s = rh.sendGetFacilityRequest(configuration.URL_GET_FACILITY, facility_id, start_hour, day_name);
                 return s;
             }
         }
+        GetFacility gf = new GetFacility();
+        gf.execute();
     }
 
     private void showFacility(String json) {
@@ -80,6 +82,17 @@ public class payment extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray result = jsonObject.getJSONArray(configuration.TAG_JSON_ARRAY);
             JSONObject c = result.getJSONObject(0);
+            String date = c.getString(configuration.TAG_SCHEDULE_DATE);
+            String facility_name = c.getString(configuration.TAG_FACILITY_FACILITY_NAME);
+            String start_hour = c.getString(configuration.TAG_SCHEDULE_START_HOUR);
+            String finish_hour = c.getString(configuration.TAG_SCHEDULE_FINISH_HOUR);
+            String amount = c.getString(configuration.TAG_FACILITY_PRICE);
+
+            dataDate.setText(date);
+            dataFacilityName.setText(facility_name);
+            dataStartHour.setText(start_hour);
+            dataFinishHour.setText(finish_hour);
+            dataAmount.setText(amount);
         } catch (JSONException e) {
             e.printStackTrace();
         }
