@@ -14,6 +14,7 @@ public class configuration {
     public static final String URL_GET_FACILITY = URL_BASE + "showFacility.php?facility_id=";
     public static final String URL_GET_SCHEDULE_DAY = URL_BASE + "showScheduleDay.php";
     public static final String URL_LOGOUT = URL_BASE + "logout.php";
+    public static final String URL_ADD_BOOKING = URL_BASE + "addBooking.php";
 
     public static final String KEY_USER_ID = "user_id";
     public static final String KEY_USER_USERNAME = "username";
@@ -23,6 +24,9 @@ public class configuration {
     public static final String KEY_USER_PASSWORD = "password";
     public static final String KEY_USER_CONFIRM_PASSWORD = "confirm_password";
     public static final String KEY_USER_PHONE_NUMBER = "phone_number";
+    public static final String KEY_SCHEDULE_ID = "schedule_id";
+    public static final String KEY_BOOKING_DATE = "booking_date";
+    public static final String KEY_BOOKING_STATUS = "status";
 
     public static final String TAG_JSON_ARRAY = "result";
     public static final String TAG_USER_ID = "id";
@@ -40,6 +44,7 @@ public class configuration {
     public static final String TAG_FACILITY_FACILITY_TYPE = "facility_type";
     public static final String TAG_FACILITY_DESCRIPTION = "description";
     public static final String TAG_FACILITY_PRICE = "price";
+    public static final String TAG_SCHEDULE_ID = "schedule_id";
     public static final String TAG_SCHEDULE_DATE = "date";
     public static final String TAG_SCHEDULE_DAY = "day";
     public static final String TAG_SCHEDULE_START_HOUR = "start_hour";
