@@ -66,21 +66,21 @@ public class payment extends AppCompatActivity {
         dana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                paymentMethod = dana.getText().toString().trim();
             }
         });
 
         ovo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                paymentMethod = ovo.getText().toString().trim();
             }
         });
 
         payNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                paymentMethod = payNow.getText().toString().trim();
             }
         });
     }
