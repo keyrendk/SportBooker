@@ -71,32 +71,44 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
         holder.startHour3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                facility_id = holder.facilityID;
                 startHour = holder.startHour3.getText().toString();
-                Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+                finishHour = "14:00";
+                facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
 
         holder.startHour4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                facility_id = holder.facilityID;
                 startHour = holder.startHour4.getText().toString();
-                Toast.makeText(context,"Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+                finishHour = "16:00";
+                facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
 
         holder.startHour5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                facility_id = holder.facilityID;
                 startHour = holder.startHour5.getText().toString();
-                Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+                finishHour = "18:00";
+                facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
 
         holder.startHour6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                facility_id = holder.facilityID;
                 startHour = holder.startHour6.getText().toString();
-                Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
+                finishHour = "20:00";
+                facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
     }
