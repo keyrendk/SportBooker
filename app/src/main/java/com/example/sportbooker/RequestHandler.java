@@ -95,6 +95,24 @@ public class RequestHandler {
         return sb.toString();
     }
 
+    public String sendGetFacilityRequest(String requestURL, String id, String parameter2, String parameter3) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            URL url = new URL(requestURL + id + "&start_hour=" + parameter2 + "&day=" + parameter3);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            String s;
+            while((s = bufferedReader.readLine()) != null) {
+                sb.append(s).append("\n");
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+    }
+
+
     public String sendGetRequest(String requestURL) {
         StringBuilder sb = new StringBuilder();
         try {

@@ -52,8 +52,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 facility_id = holder.facilityID;
-                startHour = holder.startHour1.getText().toString();
-                finishHour = "10:00";
+                startHour = "08:00:00";
+                finishHour = "10:00:00";
                 facilityButtonClick.onButtonClick(position, facility_id, startHour, finishHour);
             }
         });
@@ -62,8 +62,8 @@ public class facilitiesRVAdapter extends RecyclerView.Adapter<facilitiesRVAdapte
             @Override
             public void onClick(View v) {
                 facility_id = holder.facilityID;
-                startHour = holder.startHour2.getText().toString();
-                finishHour = "12:00";
+                startHour = "10:00:00";
+                finishHour = "12:00:00";
                 Toast.makeText(context, "Start Hour : " + startHour, Toast.LENGTH_SHORT).show();
             }
         });

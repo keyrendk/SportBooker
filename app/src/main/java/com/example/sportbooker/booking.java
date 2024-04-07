@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -165,7 +164,7 @@ public class booking extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(configuration.URL_GET_FACILITY, sport_type);
+                String s = rh.sendGetRequestParam(configuration.URL_GET_FACILITIES, sport_type);
                 return s;
             }
         }
