@@ -2,10 +2,13 @@ package com.example.sportbooker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +31,7 @@ public class payment extends AppCompatActivity {
     private Button payNow;
     private String user_id;
     private String schedule_id;
+    private String booking_id;
     private String day_name;
     private String facility_id;
     private String start_hour;
@@ -83,7 +87,25 @@ public class payment extends AppCompatActivity {
         payNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addBooking();
+//                addBooking();
+//                addTransaction();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(payment.this);
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.custom_dialog_payment, null);
+                builder.setView(dialogView);
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+                final Button buttonDone = dialogView.findViewById(R.id.buttonDone);
+                buttonDone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(payment.this, sports.class);
+                        startActivity(intent);
+                    }
+                });
             }
         });
     }
@@ -108,7 +130,7 @@ public class payment extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetFacilityRequest(configuration.URL_GET_FACILITY, facility_id, start_hour, day_name);
+                String s = rh.sendGetFacilityRequest(configuration.URL_GET_SCHEDULE_DETAIL, facility_id, start_hour, day_name);
                 return s;
             }
         }
@@ -173,5 +195,76 @@ public class payment extends AppCompatActivity {
         }
         AddBooking ab = new AddBooking();
         ab.execute();
+    }
+
+    private void getBooking() {
+        class GetBooking extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(payment.this, "Get...", "Wait...", false, false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    JSONArray result = jsonObject.getJSONArray(configuration.TAG_JSON_ARRAY);
+                    JSONObject c = result.getJSONObject(0);
+                    booking_id = c.getString(configuration.TAG_BOOKING_ID);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected String doInBackground(Void... v) {
+                RequestHandler rh = new RequestHandler();
+                String res = rh.sendGetRequestParam(configuration.URL_GET_BOOKING_ID, schedule_id);
+                return res;
+            }
+        }
+        GetBooking gb = new GetBooking();
+        gb.execute();
+    }
+
+    private void addTransaction() {
+        final String transaction_status = "Confirmed";
+        final String amount = dataAmount.getText().toString().trim();
+        class AddTransaction extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(payment.this, "Add...", "Wait...", false, false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+            }
+
+            @Override
+            protected String doInBackground(Void... v) {
+                HashMap<String, String> params = new HashMap<>();
+                params.put(configuration.KEY_USER_ID, user_id);
+                params.put(configuration.KEY_FACILITY_ID, facility_id);
+                params.put(configuration.KEY_BOOKING_ID, booking_id);
+                params.put(configuration.KEY_TRANSACTION_STATUS, transaction_status);
+                params.put(configuration.KEY_AMOUNT, amount);
+
+                RequestHandler rh = new RequestHandler();
+                String res = rh.sendPostRequest(configuration.URL_ADD_TRANSACTION, params);
+                return res;
+            }
+        }
+        AddTransaction at = new AddTransaction();
+        at.execute();
     }
 }
