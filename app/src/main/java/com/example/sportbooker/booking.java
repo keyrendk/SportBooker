@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +33,7 @@ public class booking extends AppCompatActivity {
     private String facility_id;
     private String start_hour;
     private String finish_hour;
+    private String schedule_status;
     private RecyclerView listView;
     private RecyclerView listDay;
     private Button cancel;
@@ -91,13 +93,18 @@ public class booking extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentPayment = new Intent(booking.this, payment.class);
-                intentPayment.putExtra(configuration.USER_ID, user_id);
-                intentPayment.putExtra(configuration.SCHEDULE_DAY, dayName);
-                intentPayment.putExtra(configuration.FACILITY_ID, facility_id);
-                intentPayment.putExtra(configuration.START_HOUR, start_hour);
-                intentPayment.putExtra(configuration.FINISH_HOUR, finish_hour);
-                startActivity(intentPayment);
+                checkScheduleStatus();
+                if(schedule_status == "Available") {
+                    Intent intentPayment = new Intent(booking.this, payment.class);
+                    intentPayment.putExtra(configuration.USER_ID, user_id);
+                    intentPayment.putExtra(configuration.SCHEDULE_DAY, dayName);
+                    intentPayment.putExtra(configuration.FACILITY_ID, facility_id);
+                    intentPayment.putExtra(configuration.START_HOUR, start_hour);
+                    intentPayment.putExtra(configuration.FINISH_HOUR, finish_hour);
+                    startActivity(intentPayment);
+                } else {
+                    Toast.makeText(booking.this,"Schedule Not Available", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -271,5 +278,42 @@ public class booking extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void checkScheduleStatus() {
+        class CheckScheduleStatus extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(booking.this, "Get...", "Wait...", false, false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    JSONArray result = jsonObject.getJSONArray(configuration.TAG_JSON_ARRAY);
+                    JSONObject c = result.getJSONObject(0);
+                    String status = c.getString(configuration.TAG_SCHEDULE_STATUS);
+
+                    schedule_status = status;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                RequestHandler rh = new RequestHandler();
+                String s = rh.sendGetFacilityRequest(configuration.URL_GET_SCHEDULE_DETAIL, facility_id, start_hour, dayName);
+                return s;
+            }
+        }
+        CheckScheduleStatus gf = new CheckScheduleStatus();
+        gf.execute();
     }
 }

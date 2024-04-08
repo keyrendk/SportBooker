@@ -62,6 +62,7 @@ public class configuration {
     public static final String TAG_SCHEDULE_DAY = "day";
     public static final String TAG_SCHEDULE_START_HOUR = "start_hour";
     public static final String TAG_SCHEDULE_FINISH_HOUR = "finish_hour";
+    public static final String TAG_SCHEDULE_STATUS = "status";
 
     public static final String USER_ID = "user_id";
 
