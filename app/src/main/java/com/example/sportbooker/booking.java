@@ -94,17 +94,6 @@ public class booking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkScheduleStatus();
-                if(schedule_status == "Available") {
-                    Intent intentPayment = new Intent(booking.this, payment.class);
-                    intentPayment.putExtra(configuration.USER_ID, user_id);
-                    intentPayment.putExtra(configuration.SCHEDULE_DAY, dayName);
-                    intentPayment.putExtra(configuration.FACILITY_ID, facility_id);
-                    intentPayment.putExtra(configuration.START_HOUR, start_hour);
-                    intentPayment.putExtra(configuration.FINISH_HOUR, finish_hour);
-                    startActivity(intentPayment);
-                } else {
-                    Toast.makeText(booking.this,"Schedule Not Available", Toast.LENGTH_LONG).show();
-                }
             }
         });
     }
@@ -299,8 +288,18 @@ public class booking extends AppCompatActivity {
                     JSONArray result = jsonObject.getJSONArray(configuration.TAG_JSON_ARRAY);
                     JSONObject c = result.getJSONObject(0);
                     String status = c.getString(configuration.TAG_SCHEDULE_STATUS);
-
                     schedule_status = status;
+                    if(schedule_status != null && schedule_status.equals("Available")) {
+                        Intent intentPayment = new Intent(booking.this, payment.class);
+                        intentPayment.putExtra(configuration.USER_ID, user_id);
+                        intentPayment.putExtra(configuration.SCHEDULE_DAY, dayName);
+                        intentPayment.putExtra(configuration.FACILITY_ID, facility_id);
+                        intentPayment.putExtra(configuration.START_HOUR, start_hour);
+                        intentPayment.putExtra(configuration.FINISH_HOUR, finish_hour);
+                        startActivity(intentPayment);
+                    } else {
+                        Toast.makeText(booking.this,"Schedule Not Available", Toast.LENGTH_LONG).show();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
