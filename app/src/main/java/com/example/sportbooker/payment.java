@@ -77,26 +77,31 @@ public class payment extends AppCompatActivity {
         payNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addBooking();
-                getBooking();
-                updateScheduleStatus();
+                if(paymentMethod != null) {
+                    addBooking();
+                    getBooking();
+                    updateScheduleStatus();
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(payment.this);
-                LayoutInflater inflater = getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.custom_dialog_payment, null);
-                builder.setView(dialogView);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(payment.this);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View dialogView = inflater.inflate(R.layout.custom_dialog_payment, null);
+                    builder.setView(dialogView);
 
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
 
-                final Button buttonDone = dialogView.findViewById(R.id.buttonDone);
-                buttonDone.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(payment.this, sports.class);
-                        startActivity(intent);
-                    }
-                });
+                    final Button buttonDone = dialogView.findViewById(R.id.buttonDone);
+                    buttonDone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(payment.this, sports.class);
+                            intent.putExtra(configuration.USER_ID, user_id);
+                            startActivity(intent);
+                        }
+                    });
+                } else {
+                    Toast.makeText(payment.this, "Please select a payment method", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

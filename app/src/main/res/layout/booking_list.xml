@@ -55,51 +55,72 @@
         android:rowCount="2">
         <Button
             android:id="@+id/startHour1"
+            android:background="@drawable/custom_button_hour"
             android:text="08:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="0"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp" />
         <Button
             android:id="@+id/startHour2"
+            android:background="@drawable/custom_button_hour"
             android:text="10:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_row="0"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"/>
         <Button
             android:id="@+id/startHour3"
+            android:background="@drawable/custom_button_hour"
             android:text="13:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:layout_row="0"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp" />
         <Button
             android:id="@+id/startHour4"
+            android:background="@drawable/custom_button_hour"
             android:text="15:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp"/>
         <Button
             android:id="@+id/startHour5"
+            android:background="@drawable/custom_button_hour"
             android:text="17:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_row="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:layout_marginHorizontal="5dp" />
         <Button
             android:id="@+id/startHour6"
+            android:background="@drawable/custom_button_hour"
             android:text="19:00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:layout_row="1"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"/>
     </GridLayout>
 </LinearLayout>

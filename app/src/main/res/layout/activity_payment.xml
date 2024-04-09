@@ -36,6 +36,7 @@
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/rounded_edittext_background2"
         android:inputType="date"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateOrderDetail"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -58,6 +59,7 @@
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/rounded_edittext_background2"
         android:inputType="text"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/facilityNameOrderDetail"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -106,7 +108,8 @@
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_edittext_background2"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textColor="@color/black" />
         <TextView
             android:id="@+id/dataFinishHour"
             android:layout_width="0dp"
@@ -114,7 +117,8 @@
             android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_edittext_background2"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textColor="@color/black" />
     </LinearLayout>
     <TextView
         android:id="@+id/totalOrderDetail"
@@ -135,6 +139,7 @@
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/rounded_edittext_background2"
         android:inputType="number"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalOrderDetail"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -154,6 +159,7 @@
         android:id="@+id/dataPaymentMethod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="30dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textPaymentMethod"
@@ -163,6 +169,8 @@
             android:id="@+id/qris"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/custom_button_payment_method"
             android:text="QRIS"
             android:fontFamily="@font/source_serif_pro"
             android:textColor="#000"
@@ -171,6 +179,8 @@
             android:id="@+id/dana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/custom_button_payment_method"
             android:text="DANA"
             android:fontFamily="@font/source_serif_pro"
             android:textColor="#000"
@@ -179,6 +189,8 @@
             android:id="@+id/ovo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/custom_button_payment_method"
             android:text="OVO"
             android:fontFamily="@font/source_serif_pro"
             android:textColor="#000"
@@ -189,10 +201,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_button_paynow"
         android:text="Pay Now"
+        android:textColor="@color/white"
         android:fontFamily="@font/source_serif_pro_bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dataPaymentMethod"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataPaymentMethod"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
